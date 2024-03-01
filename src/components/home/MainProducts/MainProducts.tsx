@@ -1,10 +1,10 @@
+import { getMainProducts } from 'app/services/shopify/products'
 import Image from 'next/image'
 import styles from './MainProducts.module.sass'
-import { getProducts } from 'app/services/shopify/products'
 
 export const MainProducts = async () => {
-  const reponse = await fetch('http://localhost:3000/api')
-  const { products } = await reponse.json()
+  const products = await getMainProducts()
+
   return (
     <section className={styles.MainProducts}>
       <h3>✨ New products released!</h3>
